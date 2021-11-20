@@ -23,14 +23,26 @@ function getSpecialChar() {
 }
 
 //Generate Password
-function generatePassword() {
-  var length = prompt("How long would you like your password to be? Please enter a number from 8 - 128.");
+//need generatePassword function
+function validateLength() {
+  //validate length
+  var length = prompt(
+    "How long would you like your password to be? Please enter a number from 8 - 128."
+  );
 
   if (length >= 8 && length <= 128) {
-    alert("Your password will be " + length + " characters long, thanks!");}
-    else {
-      alert("Invalid option, please try again!");}
+    alert("Thank you! Your password will be " + length + " characters long.");
+    validateLowerCase()
+  }
+  else {
+    alert("Invalid entry.");
+  }
 
+  //validate lower case
+  function validateLowerCase () {
+  var lowerCase = window.confirm(
+    "Would you like lower case letters? Please select Ok for yes and Cancel for no."
+  );
 }
 
 // Get references to the #generate element
@@ -46,3 +58,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+}
