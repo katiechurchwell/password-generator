@@ -1,4 +1,3 @@
-// Assignment code here
 //RANDOM GENERATORS (from ASCII characters)
 //Lower case
 function getRandomLower() {
@@ -21,9 +20,7 @@ function getSpecialChar() {
     1
   );
 }
-
-//Generate Password
-//need generatePassword function
+//END GENERATORS
 
 //VALIDATIONS
 function validateLength() {
@@ -34,7 +31,6 @@ function validateLength() {
 
   if (length >= 8 && length <= 128) {
     alert("Thank you! Your password will be " + length + " characters long.");
-    validateLowerCase();
   } else {
     alert("Invalid entry.");
     validateLength();
@@ -46,29 +42,25 @@ function validateLowerCase() {
   var lowerCase = window.confirm(
     "Would you like lower case letters? Please select Ok for yes and Cancel for no."
   );
-  if ((lowerCase = true)) {
-    alert("Your password will include lower case letters.");
-  } else if ((lowerCase = false)) {
-    alert("Your password will not include lower case letters.");
+  if (lowerCase) {
+    alert("Your password will include LOWER case letters.");
   } else {
-    alert("Invalid entry.");
-    validateLowerCase();
+    alert("Your password will not include LOWER case letters.");
   }
+  return lowerCase;
 }
 
 //validate upper case
 function validateUpperCase() {
   var upperCase = window.confirm(
-    "Would you like upper case letters? Please select Ok for yes and Cancel for no."
+    "Would you like UPPER case letters? Please select Ok for yes and Cancel for no."
   );
-  if ((upperCase = true)) {
-    alert("Your password will include upper case letters.");
-  } else if ((upperCase = false)) {
-    alert("Your password will not include upper case letters.");
+  if (upperCase) {
+    alert("Your password will include UPPER case letters.");
   } else {
-    alert("Invalid entry.");
-    validateUpperCase();
+    alert("Your password will not include UPPER case letters.");
   }
+  return upperCase;
 }
 
 //validate special characters 
@@ -76,14 +68,21 @@ function validateSpecialChar() {
   var specialChar = window.confirm(
     "Would you like special characters? Please select Ok for yes and Cancel for no."
   );
-  if ((specialChar = true)) {
+  if (specialChar) {
     alert("Your password will include special characters.");
-  } else if ((specialChar = false)) {
-    alert("Your password will not include special characters.");
   } else {
-    alert("Invalid entry.");
-    validateSpecialChar();
+    alert("Your password will not include special characters.");
   }
+  return specialChar
+}
+//END VALIDATIONS
+
+//Generate Password
+function generatePassword() {
+  var length = validateLength();
+  var isLowerCase = validateLowerCase();
+  var isUpperCase = validateUpperCase();
+  var isSpecialChar = validateSpecialChar();
 }
 
 // Get references to the #generate element
