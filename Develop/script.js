@@ -13,8 +13,11 @@ function getRandomNumber(){
   return (Math.floor(Math.random() * 10));
 }
 
-console.log(getRandomNumber());
-
+//Special Characters
+function getSpecialChar() {
+  var specialCharacter = "!”#$%&’()*+,-./:;<=>?@[\]^_`{|}~";
+  return specialCharacter.substr(Math.floor(specialCharacter.length * Math.random()), 1);
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
