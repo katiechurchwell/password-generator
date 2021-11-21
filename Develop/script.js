@@ -23,9 +23,14 @@ function getSpecialChar() {
 //END GENERATORS
 
 //VALIDATIONS
+// let upperCase;
+// let number;
+// let specialChar;
+
 //validate length
+let length;
 function validateLength() {
-  var length = prompt(
+  length = prompt(
     "How long would you like your password to be? Please enter a number from 8 - 128."
   );
 
@@ -38,78 +43,72 @@ function validateLength() {
   }
 }
 
-//validate lower case
+// //validate lower case
+let lowerCase;
 function validateLowerCase() {
-  var lowerCase = window.confirm(
-    "Would you like lower case letters? Please select Ok for yes and Cancel for no."
+  lowerCase = window.confirm(
+    "Would you like LOWER case letters? Please select Ok for yes and Cancel for no."
   );
   return lowerCase;
 }
 
-//validate upper case
+// //validate upper case
+let upperCase;
 function validateUpperCase() {
-  var upperCase = window.confirm(
+  upperCase = window.confirm(
     "Would you like UPPER case letters? Please select Ok for yes and Cancel for no."
   );
   return upperCase;
 }
 
-//validate numbers
-function validateNumbers() {
-  var number = window.confirm(
-    "Would you like numbers? Please select Ok for yes and Cancel for no."
-  );
-  return number;
-}
+// //validate numbers
+// // function validateNumbers() {
+// //   // var number = window.confirm(
+// //   //   "Would you like numbers? Please select Ok for yes and Cancel for no."
+// //   // );
+// //   return number;
+// }
 
-//validate special characters
-function validateSpecialChar() {
-  var specialChar = window.confirm(
-    "Would you like special characters? Please select Ok for yes and Cancel for no."
-  );
-  return specialChar;
-}
-//END VALIDATIONS
+// //validate special characters
+// // function validateSpecialChar() {
+// //   // var specialChar = window.confirm(
+// //   //   "Would you like special characters? Please select Ok for yes and Cancel for no."
+// //   // );
+// //   return specialChar;
+// }
+// //END VALIDATIONS
 
 //GENERATE PASSWORD
+let generatedPassword = [];
+
 function generatePassword() {
-  //booleans for variables
-  var length = validateLength();
-  var isLowerCase = validateLowerCase();
-  var isUpperCase = validateUpperCase();
-  var isNumber = validateNumbers();
-  var isSpecialChar = validateSpecialChar();
+  
+  validateLength();
+  validateLowerCase();
+  // validateUpperCase();
+  parseInt(length);
 
-  //if true, fetch randoms
-  function lowerCase() {
-    if (isLowerCase) {
-      return getRandomLower();
-    }
-  }
-  function upperCase() {
-    if (isUpperCase) {
-      return getRandomUpper();
-    }
-  }
-  function number() {
-    if (isNumber) {
-    return getRandomNumber();
-  }
-}
-  function specialChar() {
-    if (isSpecialChar) {
-      return getSpecialChar();
-    }
+  // generate vanilla password
+  for (var i = 0; i < length; i++) {
+    generatedPassword.push(getRandomLower());
   }
 
-//testing...
-    var chosenPassword = "";
-    chosenPassword.concat(lowerCase(),upperCase(),number(),specialChar());
-    chosenPassword.length = length;
-    console.log(chosenPassword);
-    
-    console.log("console log is working");
-//end testing...
+  // if (validateLowerCase) {
+  //   for (var i = 0; i < length; i++) {
+  //     generatedPassword.push(getRandomLower());
+  //   }
+  // }
+
+  // if (validateUpperCase) {
+  //   for (var i = 0; i < length; i++) {
+  //     return generatedPassword.map(number => number.toUpperCase());
+  //   }
+  // }
+
+
+// end my code
+
+  return generatedPassword;
 }
 
 // Get references to the #generate element
