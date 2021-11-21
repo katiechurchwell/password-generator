@@ -62,7 +62,6 @@ function validateNumbers() {
   return number;
 }
 
-
 //validate special characters
 function validateSpecialChar() {
   var specialChar = window.confirm(
@@ -72,40 +71,53 @@ function validateSpecialChar() {
 }
 //END VALIDATIONS
 
-//Generate Password
+//GENERATE PASSWORD
 function generatePassword() {
+  //booleans for variables
   var length = validateLength();
   var isLowerCase = validateLowerCase();
   var isUpperCase = validateUpperCase();
   var isNumber = validateNumbers();
   var isSpecialChar = validateSpecialChar();
 
-  
+  //if true, fetch randoms
   function lowerCase() {
     if (isLowerCase) {
-    return getRandomLower();
-  }}
-
+      return getRandomLower();
+    }
+  }
   function upperCase() {
     if (isUpperCase) {
-    return getRandomUpper();
-  }}
-
+      return getRandomUpper();
+    }
+  }
   function number() {
-    if (isNumber);
+    if (isNumber) {
     return getRandomNumber();
   }
-
-  function specialChar() {
-  if (isSpecialChar) {
-    return getSpecialChar();
-  }}
-
-  let chosenPassword = '';
-
-  console.log(chosenPassword.concat(lowerCase(),upperCase(),number(),specialChar()));
-  
 }
+  function specialChar() {
+    if (isSpecialChar) {
+      return getSpecialChar();
+    }
+  }
+
+  //testing...
+    let chosenPassword = "";
+    chosenPassword.concat(
+    lowerCase(),
+    upperCase(),
+    number(),
+    specialChar()
+  );
+   }
+
+  function passwordFinal(length) {
+    for (var i = 0; i < length; i++);
+    
+  }
+  console.log(passwordFinal());
+//end testing...
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
