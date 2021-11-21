@@ -23,14 +23,15 @@ function getSpecialChar() {
 //END GENERATORS
 
 //VALIDATIONS
+//validate length
 function validateLength() {
-  //validate length
   var length = prompt(
     "How long would you like your password to be? Please enter a number from 8 - 128."
   );
 
   if (length >= 8 && length <= 128) {
     alert("Thank you! Your password will be " + length + " characters long.");
+    return length;
   } else {
     alert("Invalid entry.");
     validateLength();
@@ -42,11 +43,6 @@ function validateLowerCase() {
   var lowerCase = window.confirm(
     "Would you like lower case letters? Please select Ok for yes and Cancel for no."
   );
-  if (lowerCase) {
-    alert("Your password will include LOWER case letters.");
-  } else {
-    alert("Your password will not include LOWER case letters.");
-  }
   return lowerCase;
 }
 
@@ -55,25 +51,24 @@ function validateUpperCase() {
   var upperCase = window.confirm(
     "Would you like UPPER case letters? Please select Ok for yes and Cancel for no."
   );
-  if (upperCase) {
-    alert("Your password will include UPPER case letters.");
-  } else {
-    alert("Your password will not include UPPER case letters.");
-  }
   return upperCase;
 }
 
-//validate special characters 
+//validate numbers
+function validateNumbers() {
+  var number = window.confirm(
+    "Would you like numbers? Please select Ok for yes and Cancel for no."
+  );
+  return number;
+}
+
+
+//validate special characters
 function validateSpecialChar() {
   var specialChar = window.confirm(
     "Would you like special characters? Please select Ok for yes and Cancel for no."
   );
-  if (specialChar) {
-    alert("Your password will include special characters.");
-  } else {
-    alert("Your password will not include special characters.");
-  }
-  return specialChar
+  return specialChar;
 }
 //END VALIDATIONS
 
@@ -82,7 +77,34 @@ function generatePassword() {
   var length = validateLength();
   var isLowerCase = validateLowerCase();
   var isUpperCase = validateUpperCase();
+  var isNumber = validateNumbers();
   var isSpecialChar = validateSpecialChar();
+
+  
+  function lowerCase() {
+    if (isLowerCase) {
+    return getRandomLower();
+  }}
+
+  function upperCase() {
+    if (isUpperCase) {
+    return getRandomUpper();
+  }}
+
+  function number() {
+    if (isNumber);
+    return getRandomNumber();
+  }
+
+  function specialChar() {
+  if (isSpecialChar) {
+    return getSpecialChar();
+  }}
+
+  let chosenPassword = '';
+
+  console.log(chosenPassword.concat(lowerCase(),upperCase(),number(),specialChar()));
+  
 }
 
 // Get references to the #generate element
