@@ -102,22 +102,15 @@ function generatePassword() {
     }
   }
 
-  //testing...
-    let chosenPassword = "";
-    chosenPassword.concat(
-    lowerCase(),
-    upperCase(),
-    number(),
-    specialChar()
-  );
-   }
-
-  function passwordFinal(length) {
-    for (var i = 0; i < length; i++);
+//testing...
+    var chosenPassword = "";
+    chosenPassword.concat(lowerCase(),upperCase(),number(),specialChar());
+    chosenPassword.length = length;
+    console.log(chosenPassword);
     
-  }
-  console.log(passwordFinal());
+    console.log("console log is working");
 //end testing...
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
