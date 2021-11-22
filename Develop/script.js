@@ -42,7 +42,7 @@ function generatePassword() {
 
   var guaranteePassword = "";
 
-  while (guaranteePassword.length <= length-guaranteePassword.length) {
+  while (guaranteePassword.length < length) {
     if (isLowerCase) {
       var randomLower = getRandomLower();
       guaranteePassword += randomLower;
@@ -60,6 +60,8 @@ function generatePassword() {
       guaranteePassword += specialChar;
     }
   }
+
+  guaranteePassword = guaranteePassword.slice(0, length) 
   console.log(guaranteePassword.length);
   console.log(guaranteePassword);
 
