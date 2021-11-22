@@ -24,16 +24,16 @@ function getSpecialChar() {
 
 //function to create password
 function generatePassword() {
-    length = prompt(
-      "How long would you like your password to be? Please enter a number from 8 - 128."
-    );
+  length = prompt(
+    "How long would you like your password to be? Please enter a number from 8 - 128."
+  );
 
-    if (length >= 8 && length <= 128) {
-      alert("Thank you! Your password will be " + length + " characters long.");
-    } else {
-      alert("Invalid entry.");
-      validateLength();
-    }
+  if (length >= 8 && length <= 128) {
+    alert("Thank you! Your password will be " + length + " characters long.");
+  } else {
+    alert("Invalid entry.");
+    validateLength();
+  }
 
   var isLowerCase = confirm("Lower case letters?");
   var isUpperCase = confirm("Upper case letters?");
@@ -42,24 +42,29 @@ function generatePassword() {
 
   var guaranteePassword = "";
 
-  if (isLowerCase) {
-    var randomLower = getRandomLower();
-    guaranteePassword.concat(randomLower);
+  while (guaranteePassword.length <= length) {
+    if (isLowerCase) {
+      var randomLower = getRandomLower();
+      guaranteePassword += randomLower;
+    }
+    if (isUpperCase) {
+      var randomUpper = getRandomUpper();
+      guaranteePassword += randomUpper;
+    }
+    if (isNumbers) {
+      var randomNumber = getRandomNumber();
+      guaranteePassword += randomNumber;
+    }
+    if (isSpcChar) {
+      var specialChar = getSpecialChar();
+      guaranteePassword += specialChar;
+    }
   }
-  if (isUpperCase) {
-    var randomUpper = getRandomUpper();
-    guaranteePassword.concat(randomUpper);
-  }
-  if (isNumbers) {
-    var randomNumber = getRandomNumber();
-    guaranteePassword.concat(randomNumber);
-  }
-  if (isSpcChar) {
-    var specialChar = getSpecialChar();
-    guaranteePassword.concat(specialChar);
-  }
-return guaranteePassword;
-}
+  console.log(guaranteePassword.length);
+  console.log(guaranteePassword);
+
+  return guaranteePassword
+} //end generatePassword
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
