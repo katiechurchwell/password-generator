@@ -42,7 +42,7 @@ function generatePassword() {
 
   var guaranteePassword = "";
 
-  while (guaranteePassword.length <= length) {
+  while (guaranteePassword.length <= length-guaranteePassword.length) {
     if (isLowerCase) {
       var randomLower = getRandomLower();
       guaranteePassword += randomLower;
