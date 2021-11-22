@@ -1,3 +1,4 @@
+// Assignment code here
 //RANDOM GENERATORS (from ASCII characters)
 //Lower case
 function getRandomLower() {
@@ -20,101 +21,49 @@ function getSpecialChar() {
     1
   );
 }
-//END GENERATORS
 
-//VALIDATIONS
-// let upperCase;
-// let number;
-// let specialChar;
-
-//validate length
-let length;
-function validateLength() {
-  length = prompt(
-    "How long would you like your password to be? Please enter a number from 8 - 128."
-  );
-
-  if (length >= 8 && length <= 128) {
-    alert("Thank you! Your password will be " + length + " characters long.");
-    return length;
-  } else {
-    alert("Invalid entry.");
-    validateLength();
-  }
-}
-
-// //validate lower case
-let lowerCase;
-function validateLowerCase() {
-  lowerCase = window.confirm(
-    "Would you like LOWER case letters? Please select Ok for yes and Cancel for no."
-  );
-  return lowerCase;
-}
-
-// //validate upper case
-let upperCase;
-function validateUpperCase() {
-  upperCase = window.confirm(
-    "Would you like UPPER case letters? Please select Ok for yes and Cancel for no."
-  );
-  return upperCase;
-}
-
-// //validate numbers
-// // function validateNumbers() {
-// //   // var number = window.confirm(
-// //   //   "Would you like numbers? Please select Ok for yes and Cancel for no."
-// //   // );
-// //   return number;
-// }
-
-// //validate special characters
-// // function validateSpecialChar() {
-// //   // var specialChar = window.confirm(
-// //   //   "Would you like special characters? Please select Ok for yes and Cancel for no."
-// //   // );
-// //   return specialChar;
-// }
-// //END VALIDATIONS
-
-//GENERATE PASSWORD
-let generatedPassword = [];
-
+//function to create password
 function generatePassword() {
-  
-  validateLength();
-  validateLowerCase();
-  // validateUpperCase();
-  parseInt(length);
+    length = prompt(
+      "How long would you like your password to be? Please enter a number from 8 - 128."
+    );
 
-  // generate vanilla password
-  for (var i = 0; i < length; i++) {
-    generatedPassword.push(getRandomLower());
+    if (length >= 8 && length <= 128) {
+      alert("Thank you! Your password will be " + length + " characters long.");
+    } else {
+      alert("Invalid entry.");
+      validateLength();
+    }
+
+  var isLowerCase = confirm("Lower case letters?");
+  var isUpperCase = confirm("Upper case letters?");
+  var isNumbers = confirm("Numbers?");
+  var isSpcChar = confirm("Special characters?");
+
+  var guaranteePassword = "";
+
+  if (isLowerCase) {
+    var randomLower = getRandomLower();
+    guaranteePassword.concat(randomLower);
   }
-
-  // if (validateLowerCase) {
-  //   for (var i = 0; i < length; i++) {
-  //     generatedPassword.push(getRandomLower());
-  //   }
-  // }
-
-  // if (validateUpperCase) {
-  //   for (var i = 0; i < length; i++) {
-  //     return generatedPassword.map(number => number.toUpperCase());
-  //   }
-  // }
-
-
-// end my code
-
-  return generatedPassword;
+  if (isUpperCase) {
+    var randomUpper = getRandomUpper();
+    guaranteePassword.concat(randomUpper);
+  }
+  if (isNumbers) {
+    var randomNumber = getRandomNumber();
+    guaranteePassword.concat(randomNumber);
+  }
+  if (isSpcChar) {
+    var specialChar = getSpecialChar();
+    guaranteePassword.concat(specialChar);
+  }
+return guaranteePassword;
 }
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password textbox
+// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
